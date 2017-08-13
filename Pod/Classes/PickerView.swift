@@ -204,6 +204,8 @@ open class PickerView: UIView {
         }
     }
     
+    open var scrollSpeed: CGFloat = UIScrollViewDecelerationRateNormal
+    
     // MARK: Initialization
     
     required public init?(coder aDecoder: NSCoder) {
@@ -248,6 +250,7 @@ open class PickerView: UIView {
         tableView.showsVerticalScrollIndicator = false
         tableView.showsHorizontalScrollIndicator = false
         tableView.scrollsToTop = false
+        tableView.decelerationRate = scrollSpeed
         tableView.register(SimplePickerTableViewCell.classForCoder(), forCellReuseIdentifier: self.pickerViewCellIdentifier)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(tableView)
